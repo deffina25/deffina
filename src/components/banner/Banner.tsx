@@ -13,7 +13,7 @@ export const Banner = () => {
         style={{ backgroundImage: `url(${BannerBg})` }}
       >
         <div className="relative mx-[22px] mt-[22px] flex flex-col items-center bg-[#1E1E1E] px-2 py-[24px] text-center text-white md:mx-[77px] md:py-[48px]">
-          <h1 className="md-[16px] text-[28px] leading-normal font-bold text-white md:mb-[24px] md:text-[80px]">
+          <h1 className="md-[16px] text-[28px] leading-normal font-bold text-white md:mb-[24px] md:text-[56px] xl:text-[80px]">
             Development that move your business forward
           </h1>
           <p className="max-w-[570px] text-base md:text-[20px]">

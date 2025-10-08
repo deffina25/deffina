@@ -33,7 +33,7 @@ export const MenuTop = () => {
   return (
     <nav
       ref={menuRef}
-      className="relative hidden gap-12 text-xl text-white xl:flex [&_a]:text-white"
+      className="relative flex h-[216px] flex-col gap-6 overflow-scroll text-[24px] text-white md:text-[40px] xl:h-full xl:flex-row xl:gap-12 xl:overflow-auto xl:text-xl [&_a]:text-white"
     >
       {ListTopMenu()?.map(({ id, title, href, children }) => {
         if (children) {
@@ -42,20 +42,20 @@ export const MenuTop = () => {
             <div key={id} className="relative">
               <button
                 onClick={() => toggleMenu(id)}
-                className="flex cursor-pointer items-center gap-2 focus:outline-none"
+                className="flex cursor-pointer items-center gap-2 focus:outline-none md:w-full md:justify-between"
               >
                 <span>{title}</span>
                 <Down
-                  className={`transition-transform duration-300 ${
+                  className={`w-[8px] transition-transform duration-300 md:w-[16px] xl:w-[8px] ${
                     isOpen ? 'rotate-180' : 'rotate-0'
                   }`}
                 />
               </button>
               <ul
-                className={`absolute mt-4 flex min-w-[155px] flex-col gap-4 border border-[#8F8D81] bg-black px-2 py-4 text-base transition-all duration-300 ease-in-out ${
+                className={`mt-4 flex min-w-[155px] flex-col gap-4 border-[#8F8D81] bg-transparent px-8 py-4 text-base transition-all duration-300 ease-in-out md:px-10 md:text-[32px] xl:absolute xl:border xl:bg-black xl:px-2 xl:text-base ${
                   isOpen
-                    ? 'visible translate-y-0 opacity-100'
-                    : 'invisible -translate-y-2 opacity-0'
+                    ? 'flex translate-y-0 opacity-100 xl:visible'
+                    : 'hidden translate-y-2 opacity-0 xl:invisible'
                 }`}
               >
                 {children.map(({ id, title, href }) => (

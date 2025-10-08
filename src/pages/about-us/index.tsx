@@ -24,6 +24,7 @@ const Index = () => {
             </h2>
           </div>
         </div>
+
         <div className="h-[1px] bg-[#8F8D81]" />
         <div className="text-center text-base md:grid md:grid-cols-3 lg:text-[24px]">
           <div className="flex items-start justify-center border-[#8F8D81] px-4 py-[24px] md:border-r-1 md:px-[32px] md:py-[72px]">

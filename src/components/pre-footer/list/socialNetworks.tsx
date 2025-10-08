@@ -8,24 +8,24 @@ export const socialNetworks = [
     id: 1,
     alt: 'Instagram',
     href: '#',
-    icon: <Instagram />,
+    icon: <Instagram className="md:h-10 md:w-10" />,
   },
   {
     id: 2,
     alt: 'Facebook',
     href: '#',
-    icon: <Facebook />,
+    icon: <Facebook className="md:h-10 md:w-10" />,
   },
   {
     id: 3,
     alt: 'Youtube',
     href: '#',
-    icon: <YouTube />,
+    icon: <YouTube className="md:h-10 md:w-10" />,
   },
   {
     id: 4,
     alt: 'TikTok',
     href: '#',
-    icon: <TikTok />,
+    icon: <TikTok className="md:h-10 md:w-10" />,
   },
 ];
