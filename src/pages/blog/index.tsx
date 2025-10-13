@@ -66,7 +66,7 @@ const Index = () => {
                   key={id}
                   to={String(id) || '#'}
                   state={{ documentId }}
-                  data-discover="true"
+                  data-discover="true "
                   className={`border-r border-b border-[#8F8D81] px-2 py-[48px] md:px-8 xl:py-[72px] ${isLastCol ? 'border-r-0' : ''} ${isLastRow ? 'border-b-0' : ''}`}
                 >
                   {title && (
