@@ -1,5 +1,6 @@
 {
   "name": "deffina",
+  "homepage": "https://deffina25.github.io/deffina/",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -8,7 +9,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "postbuild": "react-snap",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
@@ -18,7 +19,6 @@
     "@types/node": "^24.0.3",
     "autoprefixer": "^10.4.21",
     "axios": "^1.12.2",
-    "gh-pages": "^6.3.0",
     "i18n": "^0.15.1",
     "i18next": "^25.0.1",
     "react": "^19.1.1",
@@ -49,6 +49,7 @@
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.1",
     "vite": "^7.1.2",
-    "vite-plugin-svgr": "^4.3.0"
+    "vite-plugin-svgr": "^4.3.0",
+    "gh-pages": "^6.3.0"
   }
 }
