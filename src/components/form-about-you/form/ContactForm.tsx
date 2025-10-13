@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import AddFile from './../../../assets/icons/add-file.svg?react';
+import axios from 'axios';
 
 type FormValues = {
   fullName: string;
@@ -16,9 +17,13 @@ export const ContactForm: React.FC = () => {
     'text/plain',
     'application/pdf',
     'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'image/jpeg',
+    'image/jpg',
+    'image/png',
   ];
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const {
     register,
@@ -30,10 +35,66 @@ export const ContactForm: React.FC = () => {
     mode: 'onBlur',
   });
 
-  const onSubmit = (data: FormValues) => {
-    console.log('Form data:', data);
-    reset();
-    setSelectedFile(null);
+  const onSubmit = async (data: FormValues) => {
+    try {
+      let fileId = null;
+      setLoading(true);
+      // Загрузка файла (один файл)
+      if (data.file) {
+        const uploadFormData = new FormData();
+        uploadFormData.append('files', data.file); // просто data.file, без [0]
+
+        const uploadResponse = await axios.post(
+          'http://localhost:1337/api/upload',
+          uploadFormData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          },
+        );
+
+        fileId = uploadResponse.data[0].id;
+        console.log('📎 Файл загружен, ID:', fileId);
+      }
+
+      // Отправка формы
+      const payload = {
+        data: {
+          fullName: data.fullName,
+          email: data.email,
+          yourMessage: data.yourMessage,
+          agree: data.agree,
+          ...(fileId && { file: fileId }), // добавляем file только если есть ID
+        },
+      };
+
+      console.log('📤 Отправляемый JSON:', payload);
+
+      const response = await axios.post(
+        'http://localhost:1337/api/contact-forms',
+        payload,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+
+      console.log('✅ Форма отправлена:', response.data);
+      reset();
+      setSelectedFile(null);
+    } catch (error: any) {
+      console.error('❌ Ошибка:');
+      if (error.response) {
+        console.error('Status:', error.response.status);
+        console.error('Data:', error.response.data);
+      } else {
+        console.error('Message:', error.message);
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -135,7 +196,7 @@ export const ContactForm: React.FC = () => {
         {selectedFile && (
           <div className="mt-2 flex items-center justify-start gap-2 px-7 text-white">
             <span className="text-[14px] leading-normal">
-              {selectedFile.name}
+              {selectedFile?.name}
             </span>
             <button
               type="button"
@@ -166,9 +227,10 @@ export const ContactForm: React.FC = () => {
 
       <button
         type="submit"
-        className="mt-[40px] inline-block h-[46px] w-[133px] cursor-pointer items-center justify-center rounded-4xl border border-white bg-white p-4 text-base leading-0 text-black duration-300 hover:bg-transparent hover:text-white md:mt-[48px] md:h-[60px] md:w-[170px] md:text-xl"
+        disabled={loading}
+        className="disabled:border-bg-neutral-600 mt-[40px] inline-block h-[46px] w-[133px] cursor-pointer items-center justify-center rounded-4xl border border-white bg-white p-4 text-base leading-0 text-black duration-300 hover:bg-transparent hover:text-white disabled:bg-neutral-600 md:mt-[48px] md:h-[60px] md:w-[170px] md:text-xl"
       >
-        Contact Us
+        {loading ? 'Loading...' : 'Contact Us'}
       </button>
     </form>
   );

@@ -140,7 +140,7 @@ const Index = () => {
           )}
         </div>
 
-        {image_page_2 && (
+        {image_page_2?.image && (
           <div className="container mx-auto max-w-[1202px] px-4">
             <div
               className="flex w-full justify-center border px-8 pt-[48px]"
@@ -221,7 +221,7 @@ const Index = () => {
           </div>
         )}
 
-        {image_page_3 && (
+        {image_page_3?.image && (
           <div className="container mx-auto max-w-[1202px] px-4">
             <div
               className="flex w-full justify-center border px-8 pt-[48px]"
@@ -305,22 +305,27 @@ const Index = () => {
                           {top_text && (
                             <p className="text-[20px]">{top_text}</p>
                           )}
-                          {image && (
+                          {image?.url && (
                             <div className="absolute flex h-full w-full items-center justify-center">
                               <img
-                                src={`${import.meta.env.VITE_API_URL}${image?.url}`}
+                                src={`${import.meta.env.VITE_API_URL}${image.url}`}
                                 alt={alt || ''}
+                                className="max-h-[50px]"
                               />
                             </div>
                           )}
                         </div>
                         <div className="px-8 py-[48px]">
-                          <h3 className="xl:p-[32px]font-semibold text-[20px] md:text-[28px]">
-                            {title}
-                          </h3>
-                          <p className="mt-[32px] text-[14px] text-[#8F8D81]">
-                            {formatDate(data?.createdAt)}
-                          </p>
+                          {title && (
+                            <h3 className="xl:p-[32px]font-semibold text-[20px] md:text-[28px]">
+                              {title}
+                            </h3>
+                          )}
+                          {data && (
+                            <p className="mt-[32px] text-[14px] text-[#8F8D81]">
+                              {formatDate(data?.createdAt)}
+                            </p>
+                          )}
                         </div>
                       </div>
                     );

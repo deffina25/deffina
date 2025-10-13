@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { PreFooterMenu } from './module/pre-footer-menu.tsx';
 import { RenderNetworks } from './module/pre-footer-netwoks.tsx';
 import { preFooterList } from './list/preFooterList.tsx';
-import { socialNetworks } from './list/socialNetworks.tsx';
 import Logo from './../../assets/logo.svg?react';
 
 export const PreFooter = () => {
@@ -19,7 +18,7 @@ export const PreFooter = () => {
         <Logo width={150} height={50} />
       </Link>
       <div className="hidden items-center justify-between gap-4 xl:flex">
-        <RenderNetworks data={socialNetworks} />
+        <RenderNetworks />
       </div>
     </div>
   );

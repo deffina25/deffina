@@ -33,7 +33,7 @@ export const MenuTop = () => {
   return (
     <nav
       ref={menuRef}
-      className="relative flex h-[216px] flex-col gap-6 overflow-scroll text-[24px] text-white md:text-[40px] xl:h-full xl:flex-row xl:gap-12 xl:overflow-auto xl:text-xl [&_a]:text-white"
+      className="relative flex h-[216px] flex-col gap-6 overflow-scroll text-[24px] text-white md:text-[40px] xl:h-full xl:flex-row xl:gap-12 xl:overflow-visible xl:text-xl [&_a]:text-white"
     >
       {ListTopMenu()?.map(({ id, title, href, children }) => {
         if (children) {

@@ -34,7 +34,7 @@ export const HowWork = () => {
       const containerRect = containerRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      const startOffset = 0.1;
+      const startOffset = 0.2;
       const maxHeight = containerRef.current.offsetHeight;
 
       let progress =

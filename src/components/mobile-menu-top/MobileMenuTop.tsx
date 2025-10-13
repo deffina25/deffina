@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { MenuTop } from '../menu-top';
-import { socialNetworks } from '../pre-footer/list/socialNetworks.tsx';
 import { RenderNetworks } from '../pre-footer/module/pre-footer-netwoks.tsx';
 
 export const MobileMenuTop = () => {
@@ -18,7 +17,7 @@ export const MobileMenuTop = () => {
       </div>
 
       <div className="mt-[48px] flex items-center justify-start gap-4 md:absolute md:right-[32px] md:bottom-[56px] md:flex-col">
-        <RenderNetworks data={socialNetworks} className="md:h-20 md:w-20" />
+        <RenderNetworks className="md:h-20 md:w-20" />
       </div>
 
       <div className="absolute bottom-[24px] left-0 w-full p-4 text-base md:bottom-[56px] md:pr-[140px] md:text-[20px]">

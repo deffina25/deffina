@@ -22,10 +22,11 @@ export const Box1: React.FC<Props> = ({ data }) => {
                 removeRightBorder ? 'border-r-0' : ''
               }`}
             >
-              {image && (
+              {image?.url && (
                 <div>
                   <img
-                    src={`${import.meta.env.VITE_API_URL}${image?.url}`}
+                    className="max-h-[150px]"
+                    src={`${import.meta.env.VITE_API_URL}${image.url}`}
                     alt={alt || ''}
                   />
                 </div>
@@ -33,7 +34,7 @@ export const Box1: React.FC<Props> = ({ data }) => {
 
               {text && (
                 <div
-                  className="mt-[23px] text-[20px] font-semibold md:mt-[48px] md:text-[24px] xl:text-[32px]"
+                  className="mt-[23px] line-clamp-4 text-[20px] font-semibold md:mt-[48px] md:text-[24px] xl:text-[32px]"
                   dangerouslySetInnerHTML={{ __html: text }}
                 />
               )}
