@@ -1,0 +1,1 @@
+import{r as e}from"./index-C5DZ-IuC.js";const i=t=>e.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...t},e.createElement("line",{x1:12.5039,y1:-218558e-13,x2:12.5039,y2:24,stroke:"white"}),e.createElement("line",{y1:11.495,x2:24,y2:11.495,stroke:"white"}));export{i as S};
