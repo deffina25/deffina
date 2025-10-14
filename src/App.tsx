@@ -16,7 +16,7 @@ export default function App() {
   const value = { state, dispatch };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/deffina">
       <AppContext.Provider value={value}>
         <AppRoutes />
       </AppContext.Provider>
