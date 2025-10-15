@@ -1,12 +1,12 @@
-import Logo from './../../assets/banner-1.png';
+import LogoBg from './../../assets/banner-1.png';
 import BannerBg from './../../assets/banner-bg.png';
 import { Link } from 'react-router-dom';
 
 export const Banner = () => {
   return (
     <div
-      className="relative h-[569px] w-full bg-contain bg-[center_bottom_0px] bg-no-repeat pt-[161px] md:h-[974px] md:bg-[center_bottom_-200px]"
-      style={{ backgroundImage: `url(${Logo})` }}
+      className="relative h-[569px] w-full bg-contain bg-[center_bottom_0px] bg-no-repeat pt-[161px] md:h-[974px] md:bg-[center_bottom] xl:h-screen"
+      style={{ backgroundImage: `url(${LogoBg})` }}
     >
       <div
         className="container mx-auto flex h-full w-full max-w-[1202px] items-start justify-center bg-cover bg-center bg-no-repeat"

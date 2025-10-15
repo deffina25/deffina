@@ -7,8 +7,7 @@ import routes from '~react-pages';
 import './App.css';
 
 function AppRoutes() {
-  const element = useRoutes(routes);
-  return <Layout>{element}</Layout>;
+  return <Layout>{useRoutes(routes)}</Layout>;
 }
 
 export default function App() {
