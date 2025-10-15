@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export const Banner = () => {
   return (
     <div
-      className="relative h-[569px] w-full bg-contain bg-[center_bottom] bg-no-repeat pt-[161px] md:h-[974px] xl:h-screen"
+      className="relative h-[569px] w-full bg-contain bg-[center_bottom] bg-no-repeat pt-[161px] md:h-[974px]"
       style={{ backgroundImage: `url(${LogoBg})` }}
     >
       <div
